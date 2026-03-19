@@ -1,5 +1,6 @@
 package com.senai.infob.mundoanimal.models;
 
+import java.sql.Blob;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -33,16 +34,21 @@ public class Usuario{
     @Column(name="senha")
     private String senha;
 
+    @Column(name="imagem")
+    private Blob imagem;
+
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nomeCompleto, LocalDate dataNascimento, String email, String cpf, String senha) {
+    public Usuario(Integer id, String nomeCompleto, LocalDate dataNascimento, String email, String cpf, String senha,
+            Blob imagem) {
         Id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;
         this.email = email;
         this.cpf = cpf;
         this.senha = senha;
+        this.imagem = imagem;
     }
 
     public Integer getId() {
@@ -93,6 +99,13 @@ public class Usuario{
         this.senha = senha;
     }
 
-    
+    public Blob getImagem() {
+        return imagem;
+    }
 
+    public void setImagem(Blob imagem) {
+        this.imagem = imagem;
+    }
+   
+    
 }

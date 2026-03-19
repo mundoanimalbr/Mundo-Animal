@@ -1,5 +1,21 @@
 package com.senai.infob.mundoanimal.models;
 
-public class Servicos {
-    
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+
+@Entity
+@Table(name="Servicos")
+public class Servicos{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Integer Id;
+
+    @Column(name="nome_servico")
+    private String nomeServico;
 }

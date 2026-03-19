@@ -37,18 +37,62 @@ public class Doacao{
 
     @Column(name="tel_contato")
     private String telContato;
+
+    private List<Usuario> usuario;
+
     public Doacao() {
     }
 
-    private List<Usuario> usuario;
+    public Doacao(Integer id, Pagamento pagamento, String material, String telContato, List<Usuario> usuario) {
+        Id = id;
+        this.pagamento = pagamento;
+        this.material = material;
+        this.telContato = telContato;
+        this.usuario = usuario;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
+
+    public String getTelContato() {
+        return telContato;
+    }
+
+    public void setTelContato(String telContato) {
+        this.telContato = telContato;
+    }
+
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
+    }
+
 
 @ManyToMany
     @JoinTable(
         name = "doacao_usuario",
         joinColumns = @JoinColumn(name = "doacao_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    )
-
-
     
+    )
 }
